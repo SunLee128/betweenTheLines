@@ -1,4 +1,4 @@
-<%- include ('./partials/header.ejs') %>
+<%- include ('../partials/header.ejs') %>
 
 <div class="container">
   <header class="jumbotron">
@@ -18,19 +18,20 @@
   </div>
 
   <div class="row text-center" style="display: flex; flex-wrap: wrap;">
-    <% items.forEach(function(items){ %>
+    <% items.forEach(function(item){ %>
       <div class="col-md-3 col-sm-6">
         <div class="thumbnail">
-          <img src="<%= items.image %>" alt="">
+          <img src="<%= item.image_url %>" alt="">
           <div class="caption">
-            <h4><%= items.item_name %></h4>
+            <h4><%= item.item_name %></h4>
           </div>
+          <p>
+            <a href="/items/<%= item._id%>" class="btn btn-primary">Reviews</a>
+          </p>
         </div>
       </div>
     <% }); %>
   </div>
-    
-  
 </div>
 
-<%- include ('./partials/footer.ejs') %>
+<%- include ('../partials/footer.ejs') %>
