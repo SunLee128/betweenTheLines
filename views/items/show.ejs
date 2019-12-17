@@ -1,13 +1,37 @@
 <%- include ('../partials/header.ejs') %>
-<h1><%= item.item_name%></h1>
-<img src="<%= item.image_url %>" alt="">
-<p><%= item.description%></p>
-<p>
-  <a class="btn btn-success" href="/items/<%= item._id %>/reviews/new">Add new review</a>
-</p>
-
-<% item.reviews.forEach(function(review){ %>
-<p><%= review.user_name %></p>
-<p><%= review.text %></p>
-<% }) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead">Between the Lines</p>
+      <div class="list-group">
+          <li class="list-group-item active">Info 1</li>
+          <li class="list-group-item">Info 2</li>
+          <li class="list-group-item">Info 3</li>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="thumbnail">
+          <img class="img-responsive" src="<%= item.image_url %>">
+          <div class="caption-full">
+            <h4><a><%= item.item_name%></a></h4>
+            <p><%= item.description%></p>
+          </div>
+      </div>
+      <div class="well">
+        <div class="text-right">
+            <a class="btn btn-success" href="/items/<%= item._id %>/reviews/new">Add new review</a>
+        </div>
+        <hr>
+        <% item.reviews.forEach(function(review){ %>
+          <div class="row">
+            <div class="col-mid-12">
+              <strong><%= review.user_name %></strong>
+              <p><%= review.text %></p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>
 <%- include ('../partials/footer.ejs') %> 
