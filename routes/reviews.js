@@ -40,16 +40,25 @@ router.post('/', function(req, res) {
                 },
               ]
             };
-          // getKeyPhrases.get_key_phrases(document), function (error, response, body) {
-          //   if (!error && response.statusCode == 200) {
-          //       res.redirect("/items")
-          //   }
-          // },
           getSentiments.get_sentiments(document)
             .then(({ data, status }) => {
               if (status == 200) {
-                  data.documents[0].sentiment
-                  res.redirect('/items/' + item._id);
+                //create new Result
+                var review_results = new Result({
+                  sentiment: data.documents[0].sentiment,
+                  positive: data.documents[0].documentScores.positive,
+                  neutral: data.documents[0].documentScores.neutral,
+                  negative: data.documents[0].documentScores.negative
+                 }); 
+                 review_results.save(function(err, newResults) {
+                   if(err) {
+                     console.log(err)
+                   } else {
+                     review.results = newResults;
+                     review.save()
+                   }
+                 })
+                res.redirect('/items/' + item._id);
               }
             })
             .catch(err => console.log(err))

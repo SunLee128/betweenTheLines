@@ -2,12 +2,13 @@ var mongoose = require('mongoose')
 var reviewSchema =  mongoose.Schema({
   user_name: String,
   text: String,
-  results: [
+  results: 
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Result"
-    }
-  ],
+      sentiment: String,
+      positive: Number,
+      neutral: Number,
+      negative: Number
+    },
 });
 
 module.exports = mongoose.model('Review', reviewSchema);
