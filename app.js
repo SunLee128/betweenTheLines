@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require("method-override")
 var d3 = require('d3');
+require('dotenv').config();
 //import routes
 var reviewRoutes = require('./routes/reviews');
 var itemRoutes = require('./routes/items');
