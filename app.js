@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001;
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require("method-override")
-
+//import routes
 var reviewRoutes = require('./routes/reviews');
 var itemRoutes = require('./routes/items');
 var indexRoutes = require('./routes/index');
@@ -15,7 +15,6 @@ mongoose.connect(
 	{ useUnifiedTopology: true }
 );
 // mongoose.Promise = Promise;
-
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));

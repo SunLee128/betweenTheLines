@@ -40,7 +40,7 @@ router.get('/:id', function(req, res) {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log(foundItem);
+			// console.log(foundItem);
 			res.render('items/show', { item: foundItem });
 		}
 	});
@@ -53,14 +53,12 @@ router.get("/:id/edit", function(req, res){
 	});
 });
 
-// UPDATE CAMPGROUND ROUTE
+// UPDATE an item
 router.put("/:id", function(req, res){
-	// find and update the correct campground
 	Item.findByIdAndUpdate(req.params.id, req.body.item, function(err, updatedItem){
 		 if(err){
 				 res.redirect("/items");
 		 } else {
-				 //redirect somewhere(show page)
 				 res.redirect("/items/" + req.params.id);
 		 }
 	});
