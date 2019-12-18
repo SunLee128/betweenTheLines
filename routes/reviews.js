@@ -68,4 +68,14 @@ router.post('/', function(req, res) {
 	});
 });
 
+router.delete("/:review_id", function(req, res){
+  Review.findByIdAndRemove(req.params.review_id, function(err){
+     if(err){
+         res.redirect("back");
+     } else {
+         res.redirect("/items/" + req.params.id);
+     }
+  });
+});
+
 module.exports = router;

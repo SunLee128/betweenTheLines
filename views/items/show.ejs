@@ -31,7 +31,13 @@
             <div class="col-mid-12">
               <strong><%= review.user_name %></strong>
               <p><%= review.text %></p>
-              <p>positive</p><p>negative</p><p>neutural</p>
+              <p><%= review.results.sentiment %></p>
+              <p>positive:<%= review.results.positive %></p>
+              <p>neutral:<%= review.results.neutral %></p>
+              <p>negative:<%= review.results.negative %></p>
+              <form id="delete-form" action="/items/<%=item._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+            </form>
               <hr>
             </div>
           </div>
