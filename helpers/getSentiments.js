@@ -1,6 +1,7 @@
 'use strict';
 
 let https = require('https');
+let axios = require('axios')
 
 const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
 if (!process.env[key_var]) {
@@ -14,7 +15,7 @@ if (!process.env[endpoint_var]) {
 }
 const endpoint = process.env[endpoint_var];
 
-let path = '/text/analytics/v3.0-preview.1/sentiment';
+let path = 'text/analytics/v3.0-preview.1/sentiment';
 
 let response_handler = function(response) {
 	let body = '';
@@ -32,20 +33,29 @@ let response_handler = function(response) {
 };
 
 let get_sentiments = function(documents) {
-	let body = JSON.stringify(documents);
-
-	let request_params = {
-		method: 'POST',
-		hostname: new URL(endpoint).hostname,
-		path: path,
+	const url = endpoint + path
+	return axios({
+		url,
+		method: 'post',
+		data: documents,
 		headers: {
 			'Ocp-Apim-Subscription-Key': subscription_key
 		}
-	};
+	})
+	// let body = JSON.stringify(documents);
 
-	let req = https.request(request_params, response_handler);
-	req.write(body);
-	req.end();
+	// let request_params = {
+	// 	method: 'POST',
+	// 	hostname: new URL(endpoint).hostname,
+	// 	path: path,
+	// 	headers: {
+	// 		'Ocp-Apim-Subscription-Key': subscription_key
+	// 	}
+	// };
+
+	// let req = https.request(request_params, response_handler);
+	// req.write(body);
+	// req.end();
 };
 
 // let documents = {

@@ -44,6 +44,7 @@ let get_key_phrases = function(documents) {
 	let req = https.request(request_params, response_handler);
 	req.write(body);
 	req.end();
+	return body
 };
 
 // let documents = {
