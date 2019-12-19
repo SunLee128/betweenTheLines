@@ -4,7 +4,6 @@ var Item = require("../models/item");
 var Review = require("../models/review");
 var Result = require("../models/result");
 var getSentiments = require("../helpers/getSentiments")
-var getKeyPhrases = require("../helpers/getKeyPhrases")
 
 //NEW form to create a new review
 router.get('/new', function(req, res) {
