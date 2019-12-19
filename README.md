@@ -1,4 +1,4 @@
-# betweenTheLines
+# Between The Lines
 
 Between The Lines allows you to analyse text's sentiments in a form of product review. You can create items and their reviews. Once you submit your review, the app will analyse the content and return scores. 
 
