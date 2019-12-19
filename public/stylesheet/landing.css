@@ -6,8 +6,22 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.landing {
+  margin-right: 70px;;
+}
 
 h1 {
   color:white;
   font-size: 100px;
+  text-align: right;
+}
+
+h2 {
+  color:white;
+  text-align: right;
+}
+
+.more {
+  font-size: 30px;
+  text-align: right;
 }

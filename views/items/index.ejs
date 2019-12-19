@@ -11,10 +11,10 @@
     </div>
   </section>
   <div class="album py-5 bg-light" style="display: flex; flex-wrap: wrap;">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-4">
-          <% items.forEach(function(item){ %>
+        <% items.forEach(function(item){ %>
+          <div class="col-md-4">
             <div class="card mb-4 shawdow-sm">
               <div class="thumbnail">
                 <img src="<%= item.image_url %>" alt="">
@@ -26,8 +26,8 @@
                 </div>
               </div>
             </div>
-          <% }); %>
-        </div>
+          </div>
+        <% }); %>
       </div>
     </div>
 </div>
