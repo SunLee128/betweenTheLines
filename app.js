@@ -1,6 +1,7 @@
 var express = require('express');
+var favicon = require('express-favicon');
 var app = express();
-const PORT = process.env.PORT || 3001;
+var PORT = process.env.PORT || 3001;
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var methodOverride = require("method-override")
@@ -20,6 +21,7 @@ mongoose.connect(
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(methodOverride("_method"));
 
 // const publicDirectoryPath = path.join(__dirname, 'public/stylesheets');
