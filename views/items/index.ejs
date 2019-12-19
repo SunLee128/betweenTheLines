@@ -1,13 +1,14 @@
 <%- include ('../partials/header.ejs') %>
-
 <div class="container">
   <section class="jumbotron text-center">
     <div class="container">
       <h1>Between the Lines</h1>
-      <p class="lead text-muted">Get more insights of your reviews</p>
-      <p>
-        <a class="btn btn-secondary btn-large" href="/items/new">Add new items to review</a>
+      <p class="lead text-muted">
+        Get more insights of your products or service
       </p>
+      <div style="margin-top: 50px;">
+        <a class="btn btn-secondary btn-large" href="/items/new">Add new items to review</a>
+      </div>
     </div>
   </section>
   <div class="album py-5 bg-light" style="display: flex; flex-wrap: wrap;">
@@ -17,12 +18,13 @@
           <div class="col-md-4">
             <div class="card mb-4 shawdow-sm">
               <div class="thumbnail">
-                <img src="<%= item.image_url %>" alt="">
+                <img style="height:250px; display: block;
+                margin: 0 auto;" src="<%= item.image_url %>" alt="">
                 <div class="card-body">
                   <h4 class="text-center"><%= item.item_name %></h4>
-                  <p>
+                  <div class="text-center">
                     <a href="/items/<%= item._id%>" class="btn btn-sm btn-outline-secondary">Reviews</a>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
