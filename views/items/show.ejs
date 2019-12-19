@@ -28,23 +28,38 @@
               </div>
             </div>
           </div>
-          <hr>
       </div>
       <div class="well">
         <hr>
         <% item.reviews.forEach(function(review){ %>
           <div class="row">
-            <div class="col-mid-12">
-              <strong><%= review.user_name %></strong>
-              <p><%= review.text %></p>
-              <p><%= review.results.sentiment %></p>
-              <p>positive:<%= review.results.positive %></p>
-              <p>neutral:<%= review.results.neutral %></p>
-              <p>negative:<%= review.results.negative %></p>
-              <form id="delete-form" action="/items/<%=item._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
-                <input type="submit" class="btn btn-xs btn-outline-secondary" value="Delete">
-              </form>
-              <hr>
+            <div class="col-12" >
+
+              <div class="card">
+                <div class="card-header" style="display: flex;">
+                  <strong><%= review.user_name %></strong>
+                </div>
+                <div class="card-body">
+                  <p> <%= review.text %></p>
+                  <span>sentiment:</span><strong><%= review.results.sentiment %></strong>
+                  <div class="row">
+                    <div class="col-3">
+                      <p>positive: <%= Math.floor(review.results.positive  * 10000) / 10000 %></p>
+                    </div>
+                    <div class="col-3">
+                      <p>neutral: <%= Math.floor(review.results.neutral  * 10000) / 10000 %></p>
+                    </div>
+                    <div class="col-3">
+                      <p>negative: <%= Math.floor(review.results.negative  * 10000) / 10000 %></p>
+                    </div>
+                    <div class="col-3">
+                      <form id="delete-form" action="/items/<%=item._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                        <input type="submit" class="btn btn-xs btn-outline-secondary" value="Delete">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         <% }) %>

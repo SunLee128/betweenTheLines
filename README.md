@@ -17,5 +17,5 @@ https://between-lines.herokuapp.com/
 * Bootstrap
 
 ## Data model
-![ER diagram](/public/ER_diagram.jpeg.)
+![ER diagram](/public/ER_diagram.jpeg)
 
