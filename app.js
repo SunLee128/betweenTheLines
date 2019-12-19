@@ -22,6 +22,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
 
+// const publicDirectoryPath = path.join(__dirname, 'public/stylesheets');
+// const staticDirectory =  express.static(publicDirectoryPath);
+// app.use(staticDirectory);
+
+
 //routers
 app.use("/", indexRoutes);
 app.use("/items", itemRoutes);

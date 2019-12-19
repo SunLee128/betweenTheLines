@@ -1,14 +1,15 @@
 <%- include ('../partials/header.ejs') %>
 <div class="container">
   <div class="row">
-    <h1 style="text-align: center;">Add new Review to <%= item.name %></h1>
+    <h1 style="text-align: center;">Add new Review to <%= item.item_name %></h1>
+    <img src="" alt="">
     <div style="width:30%; margin: 20px auto;">
         <form action="/items/<%= item._id%>/reviews" method="POST">
           <div class="form-group">
             <input class="form-control" type="text" name="review[user_name]" placeholder="your name">
           </div>
           <div class="form-group">
-              <input class="form-control" type="text" name="review[text]" placeholder="review">
+              <textarea class="form-control" rows="13" type="text" name="review[text]" placeholder="review"></textarea>
           </div>
           <div class="form-group">
               <button class="btn btn-lg btn-primary btn-block">Submit</button>
