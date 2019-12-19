@@ -1,5 +1,6 @@
 var express = require('express');
-var favicon = require('express-favicon');
+var favicon = require('serve-favicon')
+var path = require('path')
 var app = express();
 var PORT = process.env.PORT || 3001;
 var bodyParser = require('body-parser');
@@ -21,13 +22,8 @@ mongoose.connect(
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(methodOverride("_method"));
-
-// const publicDirectoryPath = path.join(__dirname, 'public/stylesheets');
-// const staticDirectory =  express.static(publicDirectoryPath);
-// app.use(staticDirectory);
-
 
 //routers
 app.use("/", indexRoutes);
@@ -37,3 +33,4 @@ app.use("/items/:id/reviews", reviewRoutes);
 app.listen(PORT, () => {
 	`server listening on port ${PORT}`;
 });
+
